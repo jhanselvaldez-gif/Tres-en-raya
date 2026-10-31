@@ -1,0 +1,393 @@
+:root {
+  --fondo: #4b9ee0;
+  --azul-oscuro: #002d62;
+  --azul-jugador: #1c4a9a;
+  --rojo: #ce1126;
+  --sombra-texto: 0 1px 2px rgba(0, 30, 70, 0.5);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Franja con los colores de la bandera dominicana */
+.barra-bandera {
+  height: 10px;
+  background: linear-gradient(90deg, var(--azul-oscuro) 0 33.33%, #ffffff 33.33% 66.66%, var(--rojo) 66.66% 100%);
+}
+
+.cabecera {
+  text-align: center;
+  padding: 24px 16px 8px;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 18pt;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-shadow: var(--sombra-texto);
+}
+
+.subtitulo {
+  margin: 4px 0 0;
+  font-size: 12pt;
+  font-weight: 500;
+  text-shadow: var(--sombra-texto);
+}
+
+.contenido {
+  flex: 1;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Paneles de seleccion de modo y configuracion */
+.panel {
+  background: rgba(0, 45, 98, 0.88);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+}
+
+.botones-modo {
+  display: grid;
+  gap: 12px;
+}
+
+.boton-modo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  padding: 14px 16px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.boton-modo:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.boton-modo span {
+  font-size: 0.9rem;
+}
+
+.formulario {
+  display: grid;
+  gap: 16px;
+}
+
+.formulario h2 {
+  margin: 0;
+}
+
+.grupo-jugador {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+.grupo-jugador h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.grupo-azul {
+  background: var(--azul-jugador);
+}
+
+.grupo-rojo {
+  background: var(--rojo);
+}
+
+.campo {
+  display: grid;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.campo input {
+  padding: 10px 12px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0b1f3a;
+}
+
+.etiqueta {
+  font-weight: 600;
+}
+
+.nota {
+  margin: 0;
+}
+
+.simbolos {
+  display: flex;
+  gap: 10px;
+}
+
+.opcion-simbolo {
+  position: relative;
+  flex: 1;
+  padding: 8px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.opcion-simbolo input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.opcion-simbolo.activa {
+  background: #ffffff;
+}
+
+.grupo-azul .opcion-simbolo.activa {
+  color: var(--azul-jugador);
+}
+
+.grupo-rojo .opcion-simbolo.activa {
+  color: var(--rojo);
+}
+
+.opcion-simbolo:focus-within {
+  outline: 3px solid #ffd54a;
+  outline-offset: 2px;
+}
+
+.error {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #9b0d1f;
+  font-weight: 600;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.boton {
+  padding: 11px 18px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--azul-oscuro);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: #e6f1fc;
+}
+
+.boton-secundario {
+  background: transparent;
+  color: #ffffff;
+}
+
+.boton-secundario:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Casillas de jugadores y turno */
+.marcador {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 8px;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+
+.jugador {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.jugador-j1 {
+  background: var(--azul-jugador);
+}
+
+.jugador-j2 {
+  background: var(--rojo);
+}
+
+.jugador.en-turno {
+  box-shadow: 0 0 0 3px #ffffff;
+}
+
+.jugador-nombre {
+  font-size: 0.95rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.jugador-simbolo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.turno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 700;
+  text-shadow: var(--sombra-texto);
+}
+
+.turno-simbolo {
+  min-width: 44px;
+  padding: 2px 10px;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+  text-shadow: none;
+}
+
+.color-j1 {
+  color: var(--azul-jugador);
+}
+
+.color-j2 {
+  color: var(--rojo);
+}
+
+/* Tablero azul oscuro con casillas blancas */
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+  border-radius: 12px;
+  background: var(--azul-oscuro);
+}
+
+.celda {
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 6px;
+  background: #ffffff;
+  font-size: clamp(2.4rem, 14vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.celda:hover:enabled {
+  background: #e6f1fc;
+}
+
+.celda:disabled {
+  cursor: default;
+}
+
+.celda-ganadora {
+  background: #fff1b8;
+}
+
+.zona-reiniciar {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* Ventana del ganador */
+.fondo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 20, 50, 0.6);
+}
+
+.modal {
+  width: 100%;
+  max-width: 380px;
+  padding: 24px;
+  border-top: 8px solid var(--azul-oscuro);
+  border-radius: 14px;
+  background: #ffffff;
+  color: #0b1f3a;
+  text-align: center;
+}
+
+.modal h2 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+  color: var(--azul-oscuro);
+}
+
+.modal p {
+  margin: 0 0 18px;
+}
+
+.modal .acciones {
+  justify-content: center;
+}
+
+.modal .boton {
+  border-color: var(--azul-oscuro);
+  background: var(--azul-oscuro);
+  color: #ffffff;
+}
+
+.modal .boton-secundario {
+  background: #ffffff;
+  color: var(--azul-oscuro);
+}
+
+.pie {
+  padding: 16px;
+  font-weight: 500;
+  background: var(--azul-oscuro);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.pie p {
+  max-width: 520px;
+  margin: 0 auto;
+}

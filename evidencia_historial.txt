@@ -1,0 +1,56 @@
+EVIDENCIA DEL HISTORIAL DEL PROYECTO
+
+Estudiante: Jhansel Ariel Valdez Breton
+
+1. Creación del proyecto:
+
+ Instalé las dependencias con "npm install" y luego lo ejecuté con "npm run dev" para ver el resultado en el navegador. 
+ Esto me creo la estructura de carpetas y archivos necesario para empezar a trabajar teniendo en la carpeta src los archivos (main.jsx, App.jsx, App.css, index.css).
+
+2. Lógica del juego:
+
+Hice el archivo juego.js, que guarda las reglas del juego: las 8 combinaciones para ganar (filas, columnas y diagonales), 
+una funcion que elige la jugada del bot para cuando el usuario desida jugar solo, la función que detecta quien ganó o si hubo un empate y la función que cambia de X a O.
+
+3. Pantallas y estado:
+
+En App.jsx usé useState para guardar el tablero, el turno y los jugadores. Dividí el juego en tres pantallas: 
+la de selecionar el modo (bot o 2 jugadores), la que pide el nombre y el símbolo, y la de juego. Cada jugador pone su nombre y elige X u O, y el otro recibe el símbolo que queda.
+
+4. Tablero y turnos:
+
+Cree el tablero con 9 botones. Cada vez que alguien preciona uno se pone su símbolo y el turno pasa al otro jugador. 
+Las casillas ocupadas se bloquean para que no se puedan cambiar.
+
+5. Ganador, empate y reinicio:
+Cuando alguien gana o hay un empate, aparece una ventana con el resultado y un mensaje de felicitaciones. 
+Las tres casillas ganadoras se resaltan. El botón Reiniciar está ubicado debajo del tablero y permite borrar el tablero y cambiar los nombres y los símbolos.
+
+6. Modo contra el bot:
+
+Agregué la opción de jugar solo. El bot se llama Jugador Quisqueya y usa el símbolo que queda cuando el jugador elige. 
+Juega con las siguientes reglas: primero intenta ganar, si no bloquea al rival, luego toma el centro, después una esquina y por último cualquier casilla libre. 
+Una de cada cinco veces juega al azar para que se le pueda ganar. Para que juegue solo en su turno usé useEffect con setTimeout.
+
+7. Guardar la partida:
+
+Con useEffect y localStorage hice que la partida se guarde en el navegador. Si se recarga la página, el juego sigue donde estaba.
+
+8. Diseño:
+
+Hice el diseño con CSS según las instrucciones que había en la plataforma: usé letras blancas, puse el título "Tres en raya RD", 
+debajo el mensaje "Un juego, muchas experiencias", una casilla azul a la izquierda y una roja a la derecha, y el tablero lo hice de color azul oscuro con casillas blancas. 
+Cada símbolo tiene el color de su jugador. Después puse la imagen de la bandera dominicana como fondo, guardada en src/assets.
+
+9. Problemas y correcciones:
+
+Al instalar las dependencias salieron avisos de vulnerabilidades. Los arreglé con el comando "npm audit fix --force", 
+eso actualizó Vite a la versión 8, y después actualicé el plugin de React a la versión 6 para que fuera compatible y luego comprobé que el juego siguiera funcionando con "npm run dev".
+
+10. Pruebas:
+
+Probé el modo contra el bot y el modo de 2 jugadores, las victorias, los empates, el botón Reiniciar, la validación de nombres y que la partida se guardara al recargar la página, todo funciona como corresponde.
+
+11. Entrega:
+
+Escribí el archivo README.md con lo que pidio: mi nombre, la descripción del juego, lo que aprendí y la parte más difícil. Guardé la captura de pantalla del juego y subí el proyecto a GitHub.
